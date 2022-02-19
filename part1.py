@@ -21,9 +21,9 @@ class part1:
     def count(self, n):
         if n < 6:
             return 0
-        runningTotal = 0
         # Loop for each length, starting at length 6
         for i in range(n - 5):
+            runningTotal = 0
             # Clear 'next'
             for init in range(1024):
                 self.next[init] = 0

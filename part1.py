@@ -20,7 +20,7 @@ class part1:
     # Count the number of possible strings of length n accepted by the given language
     def count(self, n):
         if n < 6:
-            return 0
+            return 4**n
         # Loop for each length, starting at length 6
         for i in range(n - 5):
             runningTotal = 0

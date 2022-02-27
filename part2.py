@@ -21,5 +21,5 @@ class part2:
                     return next
                 else:
                     Q.put(next)
-        return 'No Solution'
+        return 'No solution'
 

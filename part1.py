@@ -63,15 +63,15 @@ class part1:
     def translate(self, state):
         stateString = ''
         for i in range(6): # assume we always test strings of length 6
-            if state & 1 == 0:
+            if state == 0:
                 state >>= 1
-                if state & 1 == 0:
+                if state == 0:
                     stateString += 'a' # 00
                 else:
                     stateString += 'c' # 10
             else:
                 state >>= 1
-                if state & 1 == 0:
+                if state == 0:
                     stateString += 'b' # 01
                 else:
                     stateString += 'd' # 11

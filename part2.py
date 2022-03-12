@@ -18,8 +18,10 @@ class part2:
         while Q.qsize() > 0 and Q.qsize() < 99999:
             current = Q.get()
             for symbol in S:
-                if len(S) == 1 and symbol == 0:
+                # Check if permitted digits contains only 0
+                if len(S) == 1 and symbol == 0: 
                     return 'No Solution'
+                # Transition states and check if its valid
                 next = self.delta(current, symbol)
                 if next % k == 0 and next != 0:
                     return next

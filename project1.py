@@ -7,24 +7,29 @@ from part2 import part2
 
 def main():
     part = input("Would you like to solve part 1, solve for part 2, or run the given test cases? (1/2/test) ")
+    
     if part == '1':
-        print("Enter an integer for the length of the string")
-        length = input()
+        length = input("Enter an integer for the length of the string: ")
+        DFACount = part1().count(int(length))
+        print("Number of possible strings of size " + str(length) + " that map to our language: " + str(DFACount))
 
-        DFACount = part1()
-        print("Number of possible strings of size " + str(length) + " that map to our language: " + str(part1().count(int(length))))
     elif part == '2':
         S = input("Enter a comma-separated list of accepted one-digit inputs (e.g. 1,2,3): ")
+        # Turn input into a list of integers
         S = S.split(',')
         symbols = []
         for i in range(len(S)):
             if S[i] in ['0','1','2','3','4','5','6','7','8','9']:
                 symbols.append(int(S[i]))
+
         k = int(input("Enter the modulus #: "))
+        # Error check the range for the modulus
         while k < 1 or k > 99999:
             k = int(input("Modulus out of range (# > 0 and # < 99999): "))
-        smallest = part2()
-        print(f'Smallest possible number divisible by {str(k)} given the number set {str(symbols)}: {str(smallest.FindString(symbols, k))}')
+
+        smallest = part2().FindString(symbols, k)
+        print(f'Smallest possible number divisible by {str(k)} given the number set {str(symbols)}: {str(smallest)}')
+
     elif part == "test":
         print("Testing part 1:")
         # Test case 1:
@@ -72,6 +77,26 @@ def main():
         smallest = part2()
         answer = str(smallest.FindString(symbols, k))
         if answer == "No solution":
+            print(f" Test case 3 passed: {answer}")
+        else:
+            print(f" Test case 3 failed: {answer}")
+
+        # Test case 4
+        k = 14
+        symbols = [0, 1]
+        smallest = part2()
+        answer = str(smallest.FindString(symbols, k))
+        if answer == "10010":
+            print(f" Test case 3 passed: {answer}")
+        else:
+            print(f" Test case 3 failed: {answer}")
+
+        # Test case 5
+        k = 14
+        symbols = [0]
+        smallest = part2()
+        answer = str(smallest.FindString(symbols, k))
+        if answer == "No Solution":
             print(f" Test case 3 passed: {answer}")
         else:
             print(f" Test case 3 failed: {answer}")

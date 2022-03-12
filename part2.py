@@ -1,4 +1,6 @@
 # Author(s)
+#   Max vonBlankenburg
+#   Zachary Robinson
 
 from queue import Queue
 from sys import maxsize
@@ -17,7 +19,7 @@ class part2:
             current = Q.get()
             for symbol in S:
                 next = self.delta(current, symbol)
-                if next is not 0 and next % k == 0:
+                if next != 0 and next % k == 0:
                     return next
                 else:
                     Q.put(next)

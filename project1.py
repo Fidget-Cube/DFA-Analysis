@@ -21,6 +21,8 @@ def main():
             if S[i] in ['0','1','2','3','4','5','6','7','8','9']:
                 symbols.append(int(S[i]))
         k = int(input("Enter the modulus #: "))
+        while k < 1 or k > 99999:
+            k = int(input("Modulus out of range (# > 0 and # < 99999): "))
         smallest = part2()
         print(f'Smallest possible number divisible by {str(k)} given the number set {str(symbols)}: {str(smallest.FindString(symbols, k))}')
     elif part == "test":

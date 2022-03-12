@@ -18,8 +18,10 @@ class part2:
         while Q.qsize() > 0 and Q.qsize() < 99999:
             current = Q.get()
             for symbol in S:
+                if len(S) == 1 and symbol == 0:
+                    return 'No Solution'
                 next = self.delta(current, symbol)
-                if next != 0 and next % k == 0:
+                if next % k == 0 and next != 0:
                     return next
                 else:
                     Q.put(next)

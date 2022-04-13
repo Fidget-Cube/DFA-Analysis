@@ -12,10 +12,10 @@ class part2:
 
     def FindString(self, S, k):
 
-        Q = Queue(maxsize = 99999)
+        Q = Queue(maxsize = 999999)
 
         Q.put(0)
-        while Q.qsize() > 0 and Q.qsize() < 99999:
+        while Q.qsize() > 0 and Q.qsize() < 999999:
             current = Q.get()
             for symbol in S:
                 # Check if permitted digits contains only 0
